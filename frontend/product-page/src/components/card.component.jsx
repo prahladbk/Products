@@ -1,24 +1,34 @@
 import React from "react";
 import "../App.css";
 
-function CardComponent() {
+function CardComponent({item}) {
+  const handleDelete =(id)=>{
+    console.log(id);
+    
+  }
+  const handleUpdate =(id)=>{
+    console.log(id);
+    
+  }
   return (
+    
     <div className="card">
         {/* <div className="image"> */}
       <img
-        src="https://images.unsplash.com/photo-1736580602800-0d455b2d4b49?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        src={item?.image}
         alt="img"
       />
       {/* </div> */}
       <div className="card-container">
         <h4>
-          <b>Iphone</b>
-        <p>$1999</p>
+          <b>{item?.name}</b>
+        <p>{`$${item.price}`}</p>
         </h4>
         <br></br>
-        <button class="button del">Delete</button>
+        <button class="button del" onClick={()=>handleDelete(item.id)
+        }>Delete</button>
         <br></br>
-        <button class="button up">Update</button>
+        <button class="button up" onClick={()=>handleUpdate}>Update</button>
       </div>
     </div>
   );
