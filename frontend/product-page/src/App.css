@@ -1,0 +1,123 @@
+/* @import "tailwindcss"; */
+
+*{
+  margin: 0px;
+  padding: 0px;
+}
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.card-container{
+  display: flex;
+  
+}
+
+.card-main{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /* background-color: dodgerblue; */
+  padding: 10px;
+}
+
+.button{
+  padding: 4px;
+  margin: 2px;
+}
+
+.add{
+  background-color: #fafafa;
+}
+
+.button:hover {
+  cursor: pointer;
+  width: 140px;
+  border-radius: 10px;
+  transition-duration: .3s;
+  
+  align-items: center;
+}
+
+.sbmt{
+  margin-left: 100px;
+  margin-top: 5px;
+  padding: 5px;
+}
+.del:hover{
+  background-color: rgb(255, 48, 48);
+}
+
+.up:hover{
+  background-color: rgb(89, 66, 243);
+}
+
+.card{
+  background-color: #6187fb;
+  width: 170px;
+  margin: 40px;
+  padding: 20px;
+  border-radius: 2%;
+  overflow: hidden;
+  
+}
+
+img{
+  padding: 2px;
+  width: 140px;
+  border-radius: 2px;
+}
+
+
+
+.nav{
+  background-color: #6187fb;
+  font: large bold;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  color: #fafafa;
+}
+
+.addBtn{
+  padding: 5px;
+  border: #6187fb 20px;
+}
+
+:hover.addBtn{
+  cursor: pointer;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
