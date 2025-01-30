@@ -6,18 +6,38 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import "../App.css"
+import axios from 'axios';
 
-export default function AlertDialog() {
-  const [open, setOpen] = React.useState(false);
+export default function AlertDialog({initial,open,setOpen}) {
+  // const [open, setOpen] = React.useState(false);
   const [name, setName] = React.useState("");
   const [price, setPrice] = React.useState("");
   const [img, setImg] = React.useState("");
 
+  React.useEffect(()=>{
+    if(initial){
+      setImg(initial.image)
+      setName(initial.name)
+      setPrice(initial.price)
+    }
+  },[initial])
+
   const handleSubmit = (event) =>{
     event.preventDefault();
-    console.log("name - ",name);
-    console.log("img - ",img);
-    console.log("price - ",price);
+    if(initial){
+      axios.put(`http://localhost:5500/api/products/${initial._id}`,{
+        name:name,
+        image:img,
+        price:price
+      })
+    }
+    else{
+    axios.post("http://localhost:5500/api/products",{
+      name:name,
+      image:img,
+      price:price
+    })
+  }
     setOpen(false);
     
   }
@@ -32,9 +52,9 @@ export default function AlertDialog() {
 
   return (
     <React.Fragment>
-      <Button variant="contained" onClick={handleClickOpen}>
+      {/* <Button variant="contained" onClick={handleClickOpen}>
         + Add Product
-      </Button>
+      </Button> */}
       <Dialog
         open={open}
         onClose={handleClose}

@@ -6,6 +6,7 @@ import axios from "axios";
 
 function MainContainer() {
   const [pdt, setPdt] = useState([]);
+
   useEffect(() => {
     axios
       .get("http://localhost:5500/api/products")

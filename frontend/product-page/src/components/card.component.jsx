@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
+import axios from "axios";
+import AlertDialog from "./form.component";
 
 function CardComponent({item}) {
+
+  const [open,setOpen] = useState(false)
+  const [initial,setInitial] =useState();
   const handleDelete =(id)=>{
     console.log(id);
-    
+    axios.delete(`http://localhost:5500/api/products/${id}`)
   }
   const handleUpdate =(id)=>{
     console.log(id);
-    
+    setInitial(item)
+    setOpen(true)
   }
   return (
     
     <div className="card">
+      <AlertDialog initial={initial} open={open} setOpen={setOpen}/>
         {/* <div className="image"> */}
       <img
         src={item?.image}
@@ -25,10 +32,10 @@ function CardComponent({item}) {
         <p>{`$${item.price}`}</p>
         </h4>
         <br></br>
-        <button class="button del" onClick={()=>handleDelete(item.id)
+        <button class="button del" onClick={()=>handleDelete(item._id)
         }>Delete</button>
         <br></br>
-        <button class="button up" onClick={()=>handleUpdate}>Update</button>
+        <button class="button up" onClick={()=>handleUpdate(item._id)}>Update</button>
       </div>
     </div>
   );
