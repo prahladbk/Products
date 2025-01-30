@@ -20,7 +20,7 @@ function MainContainer() {
       <div className="card-main">
         {pdt.map((item)=>
         
-        <CardComponent item = {item}/>
+        <CardComponent item = {item} setPdt={setPdt}/>
       )
 
         }

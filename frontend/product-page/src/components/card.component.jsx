@@ -3,13 +3,17 @@ import "../App.css";
 import axios from "axios";
 import AlertDialog from "./form.component";
 
-function CardComponent({item}) {
+function CardComponent({item,setPdt}) {
 
   const [open,setOpen] = useState(false)
   const [initial,setInitial] =useState();
   const handleDelete =(id)=>{
     console.log(id);
     axios.delete(`http://localhost:5500/api/products/${id}`)
+    axios
+      .get("http://localhost:5500/api/products")
+      .then((response) => setPdt(response.data.data))
+      .catch((error) => console.error(error));
   }
   const handleUpdate =(id)=>{
     console.log(id);

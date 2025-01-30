@@ -3,7 +3,7 @@ import "../App.css";
 import AlertDialog from "./form.component";
 import Button from '@mui/material/Button';
 
-function NavBar() {
+function NavBar({setPdt}) {
 
   const [open,setOpen]= useState(false);
 
@@ -24,7 +24,7 @@ function NavBar() {
       <Button variant="contained" onClick={handleClickOpen}>
         + Add Product
       </Button>
-      <AlertDialog open ={open} setOpen={setOpen}/>
+      <AlertDialog open ={open} setOpen={setOpen} setPdt={setPdt}/>
     </div>
   );
 }
